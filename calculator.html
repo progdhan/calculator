@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Simple Calculator</title>
+    <style>
+        .total-div{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            margin: 200px 550px;
+            border-radius: 10px;
+            width: 200px;
+            padding-bottom: 10px;
+            background-color: rgb(90, 90, 90);
+            box-shadow: 2px 2px 8px;
+        }
+        .input{
+            width: 177px;
+            height: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 20px -50px 8px;
+            border-radius: 7px;
+            border: 1px solid;
+            background-color: rgb(243, 243, 243);
+        }
+        .num-div{
+            display:flex ;
+            flex-direction: column;
+            margin-top: 25px;
+            width: 200px;
+            row-gap: 10px;
+        }
+        .content-div{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        button:hover{
+            background-color: teal;
+            transition: 0.15s;
+        }
+        button{
+            margin: 0px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            background-color: aqua;
+            border-radius: 5px;
+            border: 2px solid;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="total-div">
+        <div class="input-div" >
+            <input class="js-input  input" type="text" >
+        </div>
+        <div class="num-div">
+            <div class="content-div">
+                <div>
+                    <button onclick="
+                        deleteAll()">
+                        AC
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        deleteValue()">
+                        C
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('**')">
+                        **
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('*')">
+                        *
+                    </button>
+                </div>
+            </div>
+            <div class="content-div">
+                <div>
+                    <button onclick="
+                        inputUpdate('7')" >
+                        7
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('8')">
+                        8
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('9')">
+                        9
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('+')">
+                        +
+                    </button>
+                </div>
+            </div>
+            <div class="content-div">
+                <div>
+                    <button onclick="
+                        inputUpdate('4')">
+                        4
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('5')">
+                        5
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('6')">
+                        6
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('-')">
+                        -
+                    </button>
+                </div>
+            </div>
+            <div class="content-div">
+                <div>
+                    <button onclick="
+                        inputUpdate('1')">
+                        1
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('2')">
+                        2
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('3')">
+                        3
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('/')">
+                        /
+                    </button>
+                </div>
+            </div>
+            <div class="content-div">
+                <div>
+                    <button onclick="
+                        inputUpdate('0')">
+                        0
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('00')">
+                        00
+                    </button>
+                </div>
+                <div>
+                    <button onclick="
+                        inputUpdate('.')">
+                        .
+                    </button>
+                </div>
+                <div>
+                    <button onclick="totalValue()">
+                        =
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function inputUpdate(num){
+            let input = document.querySelector(".js-input")
+            input.value += num
+        }
+        function totalValue(){
+            try{
+                let totalInput = document.querySelector('.js-input')
+                totalInput.value =  eval(totalInput.value)
+            }
+            catch(err){
+                document.querySelector('.js-input').value = "Syntax Error"
+            }
+
+
+        }
+        function deleteAll(){
+            let input = document.querySelector('.js-input')
+            input.value = ''
+        }
+        function deleteValue(){
+            let input = document.querySelector('.js-input')
+            input.value = input.value.slice(0,-1)
+        }
+    </script>
+</body>
+
+</html>
